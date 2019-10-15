@@ -32,6 +32,20 @@ function Announcer_Message(msg)
 	DEFAULT_CHAT_FRAME:AddMessage("-[Announcer]- "..msg);
 end
 
+
+local missTypes = {
+	ABSORB = true,
+	BLOCK = true,
+	DEFLECT = true,
+	DODGE = true,
+	EVADE = true,
+	IMMUNE = true,
+	MISS = true,
+	PARRY = true,
+	REFLECT = true,
+	RESIST = true
+}
+
 local hitAbilities = {
 	["Pummel"] = true,
 	["Shield Bash"] = true,
@@ -64,7 +78,7 @@ function Announcer_OnEvent(self, event, ...)
 		if (event == "SPELL_MISSED" and sourceGUID == PlayerGUID) then
 			local extraSpellName = extraArg2
 			local missType = extraArg4
-			if( spellAbilities[extraSpellName] ) then
+			if( hitAbilities[extraSpellName] ) then
 				AnnouncerEventMessage = tostring(extraSpellName).." > "..tostring(missType).." > "..tostring(destName);
 			end
 		end
