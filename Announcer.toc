@@ -1,3 +1,4 @@
-## Interface: 11302 
+## Interface: 11303 
+## SavedVariablesPerCharacter: Announcer_Options
 Announcer.lua
 Announcer.xml
