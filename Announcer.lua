@@ -5,6 +5,17 @@ function Announcer_OnLoad(self)
 	SlashCmdList["ANNOUNCER"] = Announcer_SlashCommand;
 	self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED");
 	Announcer_Message("Announcer loaded");
+	Announcer_Options.announce = Announcer_Set_Prefs(Announcer_Options.announce, true)
+	Announcer_Options.debug = Announcer_Set_Prefs(Announcer_Options.debug, false)
+	Announcer_Options.taunt = Announcer_Set_Prefs(Announcer_Options.taunt, false)
+end
+
+function Announcer_Set_Prefs(option, bool_default)
+	if option == nil then
+		return bool_default
+	else
+		return option
+	end
 end
 
 function Announcer_Color_Text(value)
@@ -66,7 +77,7 @@ local hitAbilities = {
 local tauntAbilities = {
 	["Mocking Blow"] = 6,
 	["Taunt"] = 3,
-	["Challenging Shout"] = 6,
+	--["Challenging Shout"] = 6,
 }
 
 local cooldownAbilities =  {
