@@ -4,10 +4,12 @@ function Announcer_OnLoad(self)
 	SLASH_ANNOUNCER1 = "/announcer";
 	SlashCmdList["ANNOUNCER"] = Announcer_SlashCommand;
 	self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED");
-	Announcer_Message("Announcer loaded");
 	Announcer_Options.announce = Announcer_Set_Prefs(Announcer_Options.announce, true)
 	Announcer_Options.debug = Announcer_Set_Prefs(Announcer_Options.debug, false)
 	Announcer_Options.taunt = Announcer_Set_Prefs(Announcer_Options.taunt, false)
+
+	Announcer_Message("Announcements: "..Announcer_Color_Text(Announcer_Options.announce));
+	Announcer_Message("taunt: "..Announcer_Color_Text(Announcer_Options.taunt));
 end
 
 function Announcer_Set_Prefs(option, bool_default)
@@ -49,7 +51,7 @@ function Announcer_Message(msg)
 	if msg == nil then
 		msg = "nil";
 	end
-	DEFAULT_CHAT_FRAME:AddMessage("-[Announcer]- "..msg);
+	DEFAULT_CHAT_FRAME:AddMessage("|cffACC3EB-[Announcer]- |r"..msg);
 end
 
 
