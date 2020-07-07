@@ -74,17 +74,21 @@ local hitAbilities = {
 	["Intercept Stun"] = true,
 	["Concussion Blow"] = true,
 	["Disarm"] = true,
+	["Bash"] = true,
 }
 
 local tauntAbilities = {
 	["Mocking Blow"] = 6,
 	["Taunt"] = 3,
 	--["Challenging Shout"] = 6,
+	["Growl"] = 3,
+	--["Challenging Roar"] = 6,
 }
 
 local cooldownAbilities =  {
 	["Last Stand"] = 20,
 	["Shield Wall"] = 10,
+	["Frenzied Regeneration"] = 10,
 }
 
 	
@@ -119,7 +123,7 @@ function Announcer_OnEvent(self, event, ...)
 		
 
 		if (destGUID == PlayerGUID) then
-			--	warrior cds	
+			--	threat cds	
 			if (cooldownAbilities[spellName]) then
 				if ( event == "SPELL_AURA_APPLIED" or event == "SPELL_AURA_REFRESH") then
 					AnnouncerEventMessage = "Using "..tostring(spellName).." ending in "..tostring(cooldownAbilities[spellName].." seconds!")
