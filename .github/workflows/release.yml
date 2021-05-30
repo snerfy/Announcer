@@ -1,0 +1,30 @@
+# this is derived from https://github.com/BigWigsMods/packager/wiki/GitHub-Actions-workflow
+name: Release packages to Curse and GitHub
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+      - "!v*.*.*-*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    env:
+      CF_API_KEY: ${{ secrets.CF_API_KEY }}
+      GITHUB_OAUTH: ${{ secrets.GH_OAUTH }}
+
+    steps:
+      - name: Clone project
+        uses: actions/checkout@v2
+
+      - name: Package and release for Classic
+        uses: BigWigsMods/packager@master
+        with:
+          args: -g classic -p 358602 -t Announcer
+
+      - name: Package and release for TBC
+        uses: BigWigsMods/packager@master
+        with:
+          args: -g bcc -p 358602 -t Announcer
