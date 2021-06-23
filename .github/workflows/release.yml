@@ -22,9 +22,9 @@ jobs:
       - name: Package and release for Classic
         uses: BigWigsMods/packager@master
         with:
-          args: -g classic -p 358602 -t Announcer
+          args: -g classic -p 358602
 
       - name: Package and release for TBC
         uses: BigWigsMods/packager@master
         with:
-          args: -g bcc -p 358602 -t Announcer
+          args: -g bcc -p 358602
