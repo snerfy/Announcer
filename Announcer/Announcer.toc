@@ -1,4 +1,6 @@
-## Interface: 11305 
+## Interface: 11306
+## Interface-Classic: 11306
+## Interface-BCC: 20501
 ## SavedVariablesPerCharacter: Announcer_Options
 Announcer.lua
 Announcer.xml
